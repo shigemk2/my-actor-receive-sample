@@ -12,7 +12,7 @@ class MyActor extends Actor {
   def receive = {
     case s: String => {
       log.info("received: %s" format s)
-      // child ! s
+      child ! s
     }
     case _ =>
   }
