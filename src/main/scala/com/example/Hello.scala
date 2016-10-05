@@ -15,10 +15,11 @@ object Hello {
     val actor2 = system.actorOf(props2, name = "myActor2") // 名前の重複はアクター間で許されません。
 
     // whileしつづけて、shutdownしない
-    while (true) {
+    for(i <- 1 to 5) {
       actor1 ! "hi actor1"
       actor2 ! "hi actor2"
       Thread.sleep(1000)
     }
+    system.terminate()
   }
 }
